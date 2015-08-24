@@ -30,7 +30,6 @@ public class User {
         this.id = id;
         this.name = name;
         this.password = password;
-        this.secretKey = UUID.randomUUID();
     }
 
     public Long getId() {
@@ -61,7 +60,7 @@ public class User {
         return secretKey;
     }
 
-    public void setSecretKey(UUID secretKey) {
-        this.secretKey = secretKey;
+    public void setSecretKey() {
+        this.secretKey = UUID.randomUUID();
     }
 }
