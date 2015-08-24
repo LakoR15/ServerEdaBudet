@@ -10,7 +10,11 @@ public class UserRoutes extends BaseController {
     @Override
     public void routes() {
 
-        post("/", (request, response) -> true);
+        post("/user/registration", (request, response) -> {
+
+            return true;
+
+        });
 
     }
 }

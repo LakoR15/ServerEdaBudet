@@ -1,5 +1,9 @@
 package model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Products")
 public class Product {
 
     public Product(Long id, String name) {
@@ -7,9 +11,17 @@ public class Product {
         this.name = name;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "safe")
     private Integer safe;
+
+    @Column(name = "sc")
     private String sc;
 
     public Long getId() {

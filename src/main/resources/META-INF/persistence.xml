@@ -7,6 +7,9 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <class>model.User</class>
+        <class>model.List</class>
+        <class>model.Order</class>
+        <class>model.Status</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>

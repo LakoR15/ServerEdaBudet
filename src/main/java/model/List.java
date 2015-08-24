@@ -1,8 +1,16 @@
 package model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Lists")
 public class List {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "name")
     private String name;
 
     public List(Long id, String name) {

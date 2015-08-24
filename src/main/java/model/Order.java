@@ -1,7 +1,10 @@
 package model;
 
+import javax.persistence.*;
 import java.sql.Timestamp;
 
+@Entity
+@Table(name = "Orders")
 public class Order {
 
     public Order(Long id, Long listId, Long ownerId, Long productId, Long statusId, Integer numbers) {
@@ -13,13 +16,29 @@ public class Order {
         this.numbers = numbers;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "listId")
     private Long listId;
+
+    @Column(name = "ownerId")
     private Long ownerId;
+
+    @Column(name = "productId")
     private Long productId;
+
+    @Column(name = "statusId")
     private Long statusId;
-    private Timestamp add_datetime;
-    private Timestamp kill_datetime;
+
+    @Column(name = "addDateTime")
+    private Timestamp addDatetime;
+
+    @Column(name = "killDatetime")
+    private Timestamp killDatetime;
+
+    @Column(name = "numbers")
     private Integer numbers;
 
     public Long getId() {
@@ -62,20 +81,20 @@ public class Order {
         this.statusId = statusId;
     }
 
-    public Timestamp getAdd_datetime() {
-        return add_datetime;
+    public Timestamp getAddDatetime() {
+        return addDatetime;
     }
 
-    public void setAdd_datetime(Timestamp add_datetime) {
-        this.add_datetime = add_datetime;
+    public void setAddDatetime(Timestamp addDatetime) {
+        this.addDatetime = addDatetime;
     }
 
-    public Timestamp getKill_datetime() {
-        return kill_datetime;
+    public Timestamp getKillDatetime() {
+        return killDatetime;
     }
 
-    public void setKill_datetime(Timestamp kill_datetime) {
-        this.kill_datetime = kill_datetime;
+    public void setKillDatetime(Timestamp killDatetime) {
+        this.killDatetime = killDatetime;
     }
 
     public Integer getNumbers() {

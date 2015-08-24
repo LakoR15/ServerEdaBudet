@@ -1,13 +1,30 @@
 package model;
 
-import java.util.UUID;
+import javax.persistence.*;
+import java.util.*;
 
+@Entity
+@Table(name = "Users")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "secretKey")
     private UUID secretKey;
+
+    @ManyToMany
+    @JoinTable(name = "Users_Lists",
+            joinColumns = @JoinColumn(name = "userId"),
+            inverseJoinColumns = @JoinColumn(name = "listId"))
+    private java.util.List<List> lists;
 
     public User(Long id, String name, String password) {
         this.id = id;
