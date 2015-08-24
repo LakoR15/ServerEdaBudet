@@ -1,14 +1,14 @@
 package model;
 
-public class List {
+public class Status {
 
-    private Long id;
-    private String name;
-
-    public List(Long id, String name) {
+    public Status(Long id, String name) {
         this.id = id;
         this.name = name;
     }
+
+    private Long id;
+    private String name;
 
     public Long getId() {
         return id;
