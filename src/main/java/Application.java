@@ -8,12 +8,8 @@ public class Application {
     public static void main(String[] args){
 
         int port;
-
-        if (args.length > 0){
-            port = Integer.parseInt(args[0]);
-        }else {
-            port = 5555;
-        }
+//        port = Integer.parseInt(args[0]);
+        port = 5555;
 
         port(port);
         new UserRoutes();
