@@ -22,4 +22,24 @@
             <property name="hibernate.hbm2ddl.auto" value="create" />
         </properties>
     </persistence-unit>
+
+    <persistence-unit name="d2g12nvnu870dn" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>model.User</class>
+        <class>model.List</class>
+        <class>model.Order</class>
+        <class>model.Status</class>
+        <class>model.Product</class>
+
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql:ec2-54-217-202-110.eu-west-1.compute.amazonaws.com:5432/d2g12nvnu870dn" />
+            <property name="javax.persistence.jdbc.user" value="skmfuwyrrhtezq" />
+            <property name="javax.persistence.jdbc.password" value="zQLJ77rO_oAd3D84TYKsuNI3o1" />
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect" />
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+        </properties>
+    </persistence-unit>
 </persistence>
