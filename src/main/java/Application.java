@@ -9,7 +9,7 @@ public class Application {
 
         int port;
 
-        if (!args[0].equals(null)){
+        if (args.equals(null)){
             port = Integer.parseInt(args[0]);
         }else {
             port = 5555;
