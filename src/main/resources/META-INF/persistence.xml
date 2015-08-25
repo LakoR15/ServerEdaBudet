@@ -39,7 +39,7 @@
             <property name="javax.persistence.jdbc.password" value="zQLJ77rO_oAd3D84TYKsuNI3o1" />
 
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect" />
-            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.hbm2ddl.auto" value="create" />
         </properties>
     </persistence-unit>
 </persistence>
