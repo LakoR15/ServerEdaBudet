@@ -3,7 +3,6 @@ package controller.api;
 import com.google.gson.Gson;
 import controller.BaseController;
 import model.User;
-import utils.EMF;
 
 
 import static spark.Spark.post;
@@ -17,7 +16,7 @@ public class UserRoutes extends BaseController {
         post("/user/registration", (request, response) -> {
 
             User user = new Gson().fromJson(request.body(), User.class);
-            em = EMF.getEm();
+            em = getEm();
             try {
                 em.getTransaction().begin();
                 em.persist(user);
@@ -34,7 +33,7 @@ public class UserRoutes extends BaseController {
         });
 
         get("/test", (request, response) -> {
-            em = EMF.getEm();
+            em = getEm();
             return  "test_is_ok";
         });
 
