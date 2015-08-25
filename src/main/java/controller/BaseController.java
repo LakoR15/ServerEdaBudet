@@ -1,10 +1,9 @@
 package controller;
 
-import javax.persistence.EntityManager;
+import utils.EMF;
 
-public abstract class BaseController {
 
-    protected EntityManager em;
+public abstract class BaseController extends EMF{
 
     public BaseController() {
         routes();
