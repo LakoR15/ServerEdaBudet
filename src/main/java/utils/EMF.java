@@ -6,7 +6,7 @@ import javax.persistence.Persistence;
 
 public abstract class EMF {
 
-    private static EntityManagerFactory factory = Persistence.createEntityManagerFactory("edabudet_db");
+    private static EntityManagerFactory factory = Persistence.createEntityManagerFactory("d2g12nvnu870dn");
 
     protected EntityManager em;
 
