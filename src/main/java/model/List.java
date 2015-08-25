@@ -13,8 +13,7 @@ public class List {
     @Column(name = "name", nullable = false)
     private String name;
 
-    public List(Integer id, String name) {
-        this.id = id;
+    public List(String name) {
         this.name = name;
     }
 
