@@ -29,7 +29,7 @@ public class UserRoutes extends BaseController {
                 em.close();
             }
 
-            return user.getId().toString() + " " + user.getSecretKey().toString();
+            return user.getId().toString() + " " + user.getSecretKey();
 
         });
 
