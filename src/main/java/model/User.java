@@ -21,7 +21,7 @@ public class User {
     private String password;
 
     @Column(name = "secretKey", nullable = false, length = 36)
-    private UUID secretKey;
+    private String secretKey;
 
     @ManyToMany
     @JoinTable(name = "Users_Lists",
@@ -30,10 +30,14 @@ public class User {
     private java.util.List<List> lists;
 
     public User(Integer id, String name, String password) {
+        this();
         this.id = id;
         this.name = name;
         this.password = password;
-        this.secretKey = UUID.randomUUID();
+    }
+
+    public User() {
+        this.secretKey = UUID.randomUUID().toString();
     }
 
     public Integer getId() {
@@ -60,7 +64,7 @@ public class User {
         this.password = password;
     }
 
-    public UUID getSecretKey() {
+    public String getSecretKey() {
         return secretKey;
     }
 }
