@@ -3,17 +3,19 @@ package model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Products")
+@Table(name = "Products", indexes = {
+        @Index(columnList = "name", name="idx_products_name")
+})
 public class Product {
 
-    public Product(Long id, String name) {
+    public Product(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "name")
     private String name;
@@ -24,11 +26,11 @@ public class Product {
     @Column(name = "sc")
     private String sc;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

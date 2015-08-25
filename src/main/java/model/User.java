@@ -3,21 +3,24 @@ package model;
 import javax.persistence.*;
 import java.util.*;
 
+
 @Entity
-@Table(name = "Users")
+@Table(name = "Users", indexes = {
+        @Index(columnList = "name", name = "idx_users_name")
+})
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "secretKey")
+    @Column(name = "secretKey", nullable = false, length = 36)
     private UUID secretKey;
 
     @ManyToMany
@@ -26,17 +29,18 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "listId"))
     private java.util.List<List> lists;
 
-    public User(Long id, String name, String password) {
+    public User(Integer id, String name, String password) {
         this.id = id;
         this.name = name;
         this.password = password;
+        this.secretKey = UUID.randomUUID();
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -58,9 +62,5 @@ public class User {
 
     public UUID getSecretKey() {
         return secretKey;
-    }
-
-    public void setSecretKey() {
-        this.secretKey = UUID.randomUUID();
     }
 }

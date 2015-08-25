@@ -1,18 +1,22 @@
 package model;
 
 import javax.persistence.*;
+import java.security.acl.Owner;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "Orders")
+@Table(name = "Orders", indexes = {
+        @Index(columnList = "addDatetime", name="idx_orders_addDateTime"),
+        @Index(columnList = "killDateTime", name="idx_orders_killDateTime")
+})
 public class Order {
 
-    public Order(Long id, Long listId, Long ownerId, Long productId, Long statusId, Integer numbers) {
+    public Order(Long id, List list, User owner, Product product, Status status, Integer numbers) {
         this.id = id;
-        this.listId = listId;
-        this.ownerId = ownerId;
-        this.productId = productId;
-        this.statusId = statusId;
+        this.list = list;
+        this.owner = owner;
+        this.product = product;
+        this.status = status;
         this.numbers = numbers;
     }
 
@@ -20,22 +24,26 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "listId")
-    private Long listId;
+    @ManyToOne
+    @JoinColumn(name = "listId")
+    private List list;
 
-    @Column(name = "ownerId")
-    private Long ownerId;
+    @ManyToOne
+    @JoinColumn(name = "ownerId")
+    private User owner;
 
-    @Column(name = "productId")
-    private Long productId;
+    @ManyToOne
+    @JoinColumn(name = "productId")
+    private Product product;
 
-    @Column(name = "statusId")
-    private Long statusId;
+    @ManyToOne
+    @JoinColumn(name = "statusId")
+    private Status status;
 
     @Column(name = "addDateTime")
     private Timestamp addDatetime;
 
-    @Column(name = "killDatetime")
+    @Column(name = "killDateTime")
     private Timestamp killDatetime;
 
     @Column(name = "numbers")
@@ -49,36 +57,36 @@ public class Order {
         this.id = id;
     }
 
-    public Long getListId() {
-        return listId;
+    public List getList() {
+        return list;
     }
 
-    public void setListId(Long listId) {
-        this.listId = listId;
+    public void setList(List list) {
+        this.list = list;
     }
 
-    public Long getOwnerId() {
-        return ownerId;
+    public User getOwner() {
+        return owner;
     }
 
-    public void setOwnerId(Long ownerId) {
-        this.ownerId = ownerId;
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 
-    public Long getProductId() {
-        return productId;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
-    public Long getStatusId() {
-        return statusId;
+    public Status getStatus() {
+        return status;
     }
 
-    public void setStatusId(Long statusId) {
-        this.statusId = statusId;
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public Timestamp getAddDatetime() {
