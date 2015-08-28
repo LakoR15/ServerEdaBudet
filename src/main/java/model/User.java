@@ -29,11 +29,11 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "listId"))
     private java.util.List<List> lists;
 
-    public User(Integer id, String name, String password) {
+    public User(String name, String password) {
         this();
-        this.id = id;
         this.name = name;
         this.password = password;
+        this.secretKey = UUID.randomUUID().toString();
     }
 
     public User() {
@@ -66,5 +66,13 @@ public class User {
 
     public String getSecretKey() {
         return secretKey;
+    }
+
+    public java.util.List<List> getLists() {
+        return lists;
+    }
+
+    public void setLists(java.util.List<List> lists) {
+        this.lists = lists;
     }
 }

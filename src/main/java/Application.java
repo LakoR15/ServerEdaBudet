@@ -1,4 +1,5 @@
 
+import controller.api.OrderRoutes;
 import controller.api.UserRoutes;
 
 import static spark.SparkBase.port;
@@ -13,5 +14,6 @@ public class Application {
 
         port(port);
         new UserRoutes();
+        new OrderRoutes();
     }
 }

@@ -11,8 +11,7 @@ import java.sql.Timestamp;
 })
 public class Order {
 
-    public Order(Long id, List list, User owner, Product product, Status status, Integer numbers) {
-        this.id = id;
+    public Order(List list, User owner, Product product, Status status, Integer numbers) {
         this.list = list;
         this.owner = owner;
         this.product = product;

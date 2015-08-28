@@ -8,9 +8,11 @@ import javax.persistence.*;
 })
 public class Product {
 
-    public Product(Integer id, String name) {
-        this.id = id;
+    public Product(String name) {
         this.name = name;
+    }
+
+    public Product(){
     }
 
     @Id
